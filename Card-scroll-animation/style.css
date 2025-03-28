@@ -1,1 +1,71 @@
+body {
+    background: #0d0d0d;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
 
+.card-group {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.card {
+    width: clamp(100px, 20vw, 200px);
+    min-height: 230px;
+    padding: clamp(16px, 3vw, 24px);
+    border-radius: 10px;
+    background: linear-gradient(85deg, #363636, #1d1d1d);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 250ms ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.card:not(:first-child) {
+    margin-left: clamp(-60px, -6vw, -80px);
+}
+
+.card:hover {
+    transform: translate(-8px, -16px) rotate(2deg);
+    z-index: 1;
+}
+
+.card:hover ~ .card {
+    transform: translateX(clamp(30px, 5vw, 60px));
+}
+
+/* Styles pour tablettes */
+@media (max-width: 768px) {
+    .card-group {
+        padding: 1.5rem;
+    }
+    
+    .card {
+        width: clamp(180px, 22vw, 250px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-group {
+        padding: 1rem;
+    }
+    
+    .card {
+        width: clamp(130px, 22vw, 200px);
+        min-height: 220px;
+    }
+}
